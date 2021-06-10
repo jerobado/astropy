@@ -109,6 +109,8 @@ def decompose_to_known_units(unit, func):
                 return decompose_to_known_units(unit._represents, func)
             raise
         return unit
+    else:
+        raise TypeError(f'Incorrect type {type(unit)}')
 
 
 def format_power(power):
