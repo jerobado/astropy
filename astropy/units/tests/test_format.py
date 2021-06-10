@@ -389,6 +389,12 @@ def test_fraction_repr():
     assert fractional.to_string('unicode') == 'cm⁵⸍²'
 
 
+def test_fits_to_string_function_error():
+    """Test if will raise a TypeError if incorrect unit type."""
+
+    with pytest.raises(TypeError):
+        u_format.Fits.to_string(None)
+
 def test_scale_effectively_unity():
     """Scale just off unity at machine precision level is OK.
     Ensures #748 does not recur
@@ -626,3 +632,4 @@ def test_unicode(string, unit):
 def test_unicode_failures(string):
     with pytest.raises(ValueError):
         u.Unit(string)
+
